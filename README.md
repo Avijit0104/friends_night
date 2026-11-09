@@ -2,7 +2,7 @@
 
 Party games for your phone, all in one place. Pick a game, share the room code, and bots fill the empty seats.
 
-**Games:** Vault Rush · Chor Police Dakat Babu · Ram Shaayam Jadu Madhu
+**Games:** Vault Rush · Chor Police Dakat Babu · Ram Shaayam Jadu Madhu · The Lost Frontier
 
 *Developed by Avijit Bose*
 ***https://friends-night.avibose000.workers.dev***
@@ -24,6 +24,7 @@ The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub r
 | Chor Police Dakat Babu | https://cpdb.avibose000.workers.dev |
 | Ram Shaayam Jadu Madhu | https://rsjm.avibose000.workers.dev |
 | Vault Rush | https://vault-rush.avibose000.workers.dev |
+| The Lost Frontier | https://lost-frontier.avibose000.workers.dev |
 
 ## Adding a game
 

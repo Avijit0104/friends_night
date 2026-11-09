@@ -81,6 +81,34 @@
       "branch": "main",
       "port": 3002,
       "health": "/healthz"
+    },
+    {
+      "id": "lost-frontier",
+      "name": "The Lost Frontier",
+      "short": "Frontier",
+      "tagline": "Cut off in the wild. Explore together and light the beacon!",
+      "about": "A real-time wilderness adventure on one big open map. Everyone walks around at the same time, carries things, pushes heavy stones together and notices different clues. Cross the ravine, find the parts and light the beacon before dusk.",
+      "howTo": [
+        "🕹️ Walk around the open map together (drag on the left side, or use WASD).",
+        "🔘 The big button picks up, drops, places and fits things. Hold Push to shove heavy stones.",
+        "👁 Your Sight shows hints only you can see. Walk to one, then tap Share to mark it for everyone.",
+        "🌉 Cross the ravine by fixing the bridge or by moving the boulder together.",
+        "🔥 Fit the gear and fuel, hold both plates, and light the beacon before dusk."
+      ],
+      "humans": [1, 8],
+      "seats": "2–8 players · co-op · no bots yet",
+      "time": "10–20 min",
+      "tags": ["Adventure", "Co-op", "Open map"],
+      "accent": "#ffc857",
+      "bg": ["#2c5a3e", "#0b1510"],
+      "icon": "games/lost-frontier/icon.svg",
+      "screenshots": [],
+      "subdomain": "frontier",
+      "url": "https://lost-frontier.avibose000.workers.dev",
+      "repo": "https://github.com/Avijit0104/lost-frontier.git",
+      "branch": "main",
+      "port": 3004,
+      "health": "/healthz"
     }
   ]
 }
