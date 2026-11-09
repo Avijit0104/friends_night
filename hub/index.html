@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Friend's Night</title>
+  <meta name="description" content="Friend's Night: party games for your phone. Pick a game, share the room code, bots fill the empty seats. Developed by Avijit Bose." />
+  <meta name="author" content="Avijit Bose" />
+  <meta name="theme-color" content="#0d0b26" />
+  <meta property="og:title" content="Friend's Night" />
+  <meta property="og:description" content="Party games for your phone. Developed by Avijit Bose." />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- night sky scenery (decorative) -->
+  <div class="sky" aria-hidden="true">
+    <div class="stars" id="stars"></div>
+    <div class="moon"></div>
+    <svg class="lights" viewBox="0 0 1200 140" preserveAspectRatio="none" id="lights">
+      <path class="wire" d="M-20 18 Q 300 120 600 40 T 1220 30" />
+    </svg>
+    <div class="lanterns" id="lanterns"></div>
+    <div class="horizon"></div>
+  </div>
+
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Tonight's line-up 🌙</p>
+      <h1 class="title"><span>Friend's</span> <span>Night</span></h1>
+      <p class="sub">Grab your phones, pick a game and share the room code. Short of friends? Bots fill the empty seats.</p>
+    </header>
+
+    <section class="picker" aria-labelledby="picker-label">
+      <p id="picker-label">How many of you are playing?</p>
+      <div class="chips" role="radiogroup" aria-labelledby="picker-label" id="chips"></div>
+    </section>
+
+    <section class="grid" id="grid" aria-label="Games" aria-live="polite"></section>
+
+    <section class="actions">
+      <button class="btn ghost" id="share-btn" type="button">📤 Share Friend's Night</button>
+      <button class="btn ghost" id="install-btn" type="button" hidden>📲 Install on this phone</button>
+    </section>
+  </main>
+
+  <!-- game details sheet -->
+  <div class="sheet-wrap" id="sheet" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1">
+      <button class="sheet-x" type="button" data-close aria-label="Close">✕</button>
+      <div class="sheet-body" id="sheet-body"></div>
+    </div>
+  </div>
+
+  <!-- share sheet -->
+  <div class="sheet-wrap" id="share" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet share-sheet" role="dialog" aria-modal="true" aria-labelledby="share-title" tabindex="-1">
+      <button class="sheet-x" type="button" data-close aria-label="Close">✕</button>
+      <h2 id="share-title">Bring your friends</h2>
+      <p>Friends sitting with you can scan this with their phone camera.</p>
+      <div class="qr" id="qr" aria-label="QR code for this page"></div>
+      <p class="share-url" id="share-url"></p>
+      <button class="btn primary" id="copy-btn" type="button">Copy link</button>
+    </div>
+  </div>
+
+  <!-- launch transition -->
+  <div class="launch" id="launch" aria-live="assertive" hidden>
+    <img class="launch-icon" id="launch-icon" alt="" />
+    <p class="launch-title" id="launch-title"></p>
+    <p class="launch-note" id="launch-note"></p>
+    <div class="launch-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- watermark: must stay visible on every screen (owner's rule) -->
+  <footer class="credit" aria-label="Credits">Developed by <b>Avijit Bose</b></footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

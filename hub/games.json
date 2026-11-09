@@ -1,0 +1,85 @@
+{
+  "_help": "One entry per game. The hub page, the server (pm2 + Caddy) and auto-deploy all read this file. See GUIDE.md → 'Adding a new game'.",
+  "games": [
+    {
+      "id": "vault-rush",
+      "name": "Vault Rush",
+      "tagline": "Grab the cash · Raid your rivals · Lock your vault",
+      "about": "A fast heist strategy game. Every round cash boxes drop into the vault and everyone secretly picks one move: claim a box, raid a rival, or lock their cash in the safe. All moves happen at once.",
+      "howTo": [
+        "📦 Tap a box to claim its cash. Same box? The cash is split.",
+        "⚔️ Tap a rival to steal 95% of their unsecured cash.",
+        "🔒 Tap your safe to bank your cash and block every raid on you.",
+        "🏆 Most total cash after the Final Heist wins."
+      ],
+      "humans": [1, 6],
+      "seats": "4–6 seats · bots fill the rest",
+      "time": "10–15 min",
+      "tags": ["Strategy", "Heist"],
+      "accent": "#ffc94a",
+      "bg": ["#3a1a7a", "#0a0618"],
+      "icon": "games/vault-rush/icon.svg",
+      "screenshots": [],
+      "subdomain": "vault",
+      "backupUrl": "https://vault-rush-njwu.onrender.com",
+      "repo": "https://github.com/Avijit0104/vault-rush.git",
+      "branch": "main",
+      "port": 3003,
+      "health": "/healthz"
+    },
+    {
+      "id": "cpdb",
+      "name": "Chor Police Dakat Babu",
+      "short": "CPDB",
+      "tagline": "The classic chit game, now on everyone's phone",
+      "about": "No paper chits needed. Everyone gets a secret chit, the Babu decides who the Police must hunt, and the Police has one guess to catch the Chor or the Dakat.",
+      "howTo": [
+        "🎴 Everyone gets a secret chit: Babu, Police, Dakat or Chor.",
+        "👑 The Babu picks who the Police must find: Chor or Dakat.",
+        "👮 The Police guesses. Right guess = 900 points, wrong = 0.",
+        "🔢 Points add up round after round. Highest total wins."
+      ],
+      "humans": [1, 4],
+      "seats": "4 players · bots fill the rest",
+      "time": "Play as long as you like",
+      "tags": ["Classic", "Bluff"],
+      "accent": "#ff8a3d",
+      "bg": ["#3b1f4d", "#13111c"],
+      "icon": "games/cpdb/icon.png",
+      "screenshots": ["games/cpdb/1-home.png", "games/cpdb/2-lobby.png", "games/cpdb/4-babu.png", "games/cpdb/7-result.png"],
+      "subdomain": "cpdb",
+      "backupUrl": "https://chor-police-dakat-babu.onrender.com",
+      "repo": "https://github.com/Avijit0104/Chor-Police-Dakat-Babu.git",
+      "branch": "main",
+      "port": 3001,
+      "health": "/healthz"
+    },
+    {
+      "id": "rsjm",
+      "name": "Ram Shaayam Jadu Madhu",
+      "short": "RSJM",
+      "tagline": "Pass the cards. Collect four of a kind. Shout first!",
+      "about": "The real-time card-passing game. Everyone holds four cards and passes one to the next player each turn. The first to hold four cards with the same name wins the round.",
+      "howTo": [
+        "🃏 Everyone gets 4 random cards: Ram, Shaayam, Jadu, Madhu.",
+        "👉 On your turn, pass one card to the next player.",
+        "🔒 You can't pass the card you just received.",
+        "⭐ First to hold 4 of the same name wins the round."
+      ],
+      "humans": [1, 6],
+      "seats": "4–6 seats · bots fill the rest",
+      "time": "5–20 min",
+      "tags": ["Cards", "Fast"],
+      "accent": "#34d399",
+      "bg": ["#1f5a46", "#0c211b"],
+      "icon": "games/rsjm/icon.svg",
+      "screenshots": [],
+      "subdomain": "rsjm",
+      "backupUrl": "https://ram-shaayam-jadu-madhu.onrender.com",
+      "repo": "https://github.com/Avijit0104/Ram-Shaayam-Jadu-Madhu.git",
+      "branch": "main",
+      "port": 3002,
+      "health": "/healthz"
+    }
+  ]
+}
