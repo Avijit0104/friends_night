@@ -16,13 +16,13 @@ Party games for your phone, all in one place. Pick a game, share the room code, 
 
 ## Hosting (Cloudflare, free)
 
-The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub repo. Every push to `main` goes live within a minute or two. Each game is its own Cloudflare Worker (or still on Render), and the hub just links to it.
+The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub repo. Every push to `main` goes live within a minute or two. Each game is its own Cloudflare Worker, and the hub just links to it. (The old Render copies still exist as backups.)
 
 | Game | Address |
 |---|---|
 | Chor Police Dakat Babu | https://cpdb.avibose000.workers.dev |
 | Ram Shaayam Jadu Madhu | https://rsjm.avibose000.workers.dev |
-| Vault Rush | Render for now |
+| Vault Rush | https://vault-rush.avibose000.workers.dev |
 
 ## Adding a game
 
