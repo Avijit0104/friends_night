@@ -5,6 +5,7 @@ Party games for your phone, all in one place. Pick a game, share the room code, 
 **Games:** Vault Rush · Chor Police Dakat Babu · Ram Shaayam Jadu Madhu
 
 *Developed by Avijit Bose*
+***https://friends-night.avibose000.workers.dev***
 
 ---
 
