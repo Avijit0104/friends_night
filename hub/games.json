@@ -48,7 +48,7 @@
       "icon": "games/cpdb/icon.png",
       "screenshots": ["games/cpdb/1-home.png", "games/cpdb/2-lobby.png", "games/cpdb/4-babu.png", "games/cpdb/7-result.png"],
       "subdomain": "cpdb",
-      "backupUrl": "https://chor-police-dakat-babu.onrender.com",
+      "backupUrl": "https://cpdb.avibose000.workers.dev",
       "repo": "https://github.com/Avijit0104/Chor-Police-Dakat-Babu.git",
       "branch": "main",
       "port": 3001,
