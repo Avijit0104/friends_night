@@ -21,7 +21,7 @@ The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub r
 | Game | Address |
 |---|---|
 | Chor Police Dakat Babu | https://cpdb.avibose000.workers.dev |
-| Ram Shaayam Jadu Madhu | Render for now |
+| Ram Shaayam Jadu Madhu | https://rsjm.avibose000.workers.dev |
 | Vault Rush | Render for now |
 
 ## Adding a game
