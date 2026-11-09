@@ -10,12 +10,14 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch { /* private mode */ } },
   };
 
-  // On our own server every game has its own subdomain (vault.<domain>) and a same-origin status check
-  // (/status/<id>). Anywhere else (local preview, GitHub Pages) we fall back to each game's backupUrl.
+  // games.json "hosting":
+  //   "links"      (default) each game has its own address in `url` (Cloudflare, Render, ...).
+  //   "own-server" the hub and the games share one server (GUIDE.md, Oracle): every game is at
+  //                <subdomain>.<this host> and has a same-origin status check at /status/<id>.
   const host = location.hostname;
-  const onOwnServer = location.protocol === 'https:' && !/^(localhost|127\.|\[::1\])/.test(host) && !host.endsWith('.github.io');
+  let onOwnServer = false; // set once games.json is loaded
 
-  const gameUrl = (g) => (onOwnServer && g.subdomain ? `https://${g.subdomain}.${host}/` : g.backupUrl);
+  const gameUrl = (g) => (onOwnServer && g.subdomain ? `https://${g.subdomain}.${host}/` : g.url);
 
   let games = [];
   const status = {}; // id -> 'checking' | 'online' | 'waking' | 'offline'
@@ -203,7 +205,7 @@
         setStatus(g.id, r.ok ? 'online' : 'offline');
       } else {
         // another origin: we can't read the answer (no CORS), but getting one at all means the server is up
-        await fetch(g.backupUrl.replace(/\/$/, '') + (g.health || '/'), { mode: 'no-cors', cache: 'no-store', signal: ctrl.signal });
+        await fetch(g.url.replace(/\/$/, '') + (g.health || '/'), { mode: 'no-cors', cache: 'no-store', signal: ctrl.signal });
         setStatus(g.id, 'online');
       }
     } catch {
@@ -338,6 +340,7 @@
     .then((r) => r.json())
     .then((data) => {
       games = data.games;
+      onOwnServer = data.hosting === 'own-server' && location.protocol === 'https:' && !/^(localhost|127\.|\[::1\])/.test(host);
       buildChips();
       renderCards();
       checkAll();

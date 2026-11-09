@@ -1,0 +1,11 @@
+// Cloudflare Workers config for the Friend's Night hub (free plan).
+// It's only static files: everything in hub/ is served as is, no server code.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "friends-night",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./hub",
+    "not_found_handling": "404-page"
+  }
+}

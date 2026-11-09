@@ -1,5 +1,7 @@
 # Friend's Night — hosting guide (Oracle Cloud, free)
 
+> **Not in use right now.** Oracle needs a credit/debit card for sign-up, so Friend's Night runs on **Cloudflare** for now (see README.md). Keep this guide for later, if you get a card.
+
 This puts the Friend's Night hub and all your games on one free Oracle server in India, with free HTTPS. After setup, you keep uploading to GitHub like you do now, and the server picks up the changes by itself within about 2 minutes.
 
 **You'll end up with:**
@@ -135,7 +137,9 @@ Then:
    | `health` | `"/healthz"` | |
    | `humans` | `[1, 6]` | min and max **people** (bots fill the rest) for the player-count filter |
 
-   The other fields (`name`, `tagline`, `about`, `howTo`, `seats`, `time`, `tags`, `accent`, `bg`, `icon`, `screenshots`, `backupUrl`) are what the hub shows.
+   The other fields (`name`, `tagline`, `about`, `howTo`, `seats`, `time`, `tags`, `accent`, `bg`, `icon`, `screenshots`, `url`) are what the hub shows.
+
+   On the Oracle server, also set `"hosting": "own-server"` at the top of `games.json`, so the hub links to the `<subdomain>.<your domain>` addresses instead of each game's `url`.
 3. Upload. Within ~2 minutes the game is cloned, installed and started, gets its own HTTPS address, and shows up on the hub.
 
 ### Remove a game

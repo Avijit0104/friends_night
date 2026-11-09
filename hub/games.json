@@ -1,5 +1,6 @@
 {
-  "_help": "One entry per game. The hub page, the server (pm2 + Caddy) and auto-deploy all read this file. See GUIDE.md → 'Adding a new game'.",
+  "_help": "One entry per game; `url` is where Play goes. hosting: 'links' = every game has its own url (now: Cloudflare/Render). 'own-server' = the Oracle setup in GUIDE.md. See README.md → 'Adding a game'.",
+  "hosting": "links",
   "games": [
     {
       "id": "vault-rush",
@@ -21,7 +22,7 @@
       "icon": "games/vault-rush/icon.svg",
       "screenshots": [],
       "subdomain": "vault",
-      "backupUrl": "https://vault-rush-njwu.onrender.com",
+      "url": "https://vault-rush-njwu.onrender.com",
       "repo": "https://github.com/Avijit0104/vault-rush.git",
       "branch": "main",
       "port": 3003,
@@ -48,7 +49,7 @@
       "icon": "games/cpdb/icon.png",
       "screenshots": ["games/cpdb/1-home.png", "games/cpdb/2-lobby.png", "games/cpdb/4-babu.png", "games/cpdb/7-result.png"],
       "subdomain": "cpdb",
-      "backupUrl": "https://cpdb.avibose000.workers.dev",
+      "url": "https://cpdb.avibose000.workers.dev",
       "repo": "https://github.com/Avijit0104/Chor-Police-Dakat-Babu.git",
       "branch": "main",
       "port": 3001,
@@ -75,7 +76,7 @@
       "icon": "games/rsjm/icon.svg",
       "screenshots": [],
       "subdomain": "rsjm",
-      "backupUrl": "https://ram-shaayam-jadu-madhu.onrender.com",
+      "url": "https://ram-shaayam-jadu-madhu.onrender.com",
       "repo": "https://github.com/Avijit0104/Ram-Shaayam-Jadu-Madhu.git",
       "branch": "main",
       "port": 3002,
