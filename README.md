@@ -35,7 +35,7 @@ The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub r
    - `url`: the game's address (where **Play** goes)
    - `health`: an address on the game that answers quickly, e.g. `/healthz` (drives the status light)
    - `humans`: `[min, max]` **people** (bots fill the rest), used by the "How many of you?" filter
-   - `name`, `short`, `tagline`, `about`, `howTo`, `seats`, `time`, `tags`, `accent`, `bg`, `icon`, `screenshots`: what the card and the "How to play" sheet show
+   - `name`, `short`, `tagline`, `about`, `howTo`, `seats`, `time`, `tags`, `accent`, `bg`, `icon`, `screenshots`: what the card and the "How to play" sheet show. `bg` takes two colours, or more for a multi-stop sky (put the darkest last; optional `bgAngle` sets the direction, default 160)
    - `stage` (optional): `"dev"` for a game that isn't finished. Its card gets a diagonal "NOT READY YET" watermark and says "In development" instead of "Ready to play"; Play still works. Remove the line when the game is ready.
    - `subdomain`, `repo`, `branch`, `port`: only used by the Oracle setup
 3. Push. The new card appears on the hub.

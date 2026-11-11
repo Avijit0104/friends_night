@@ -121,9 +121,14 @@
   const isDev = (g) => g && g.stage === 'dev';
   const statusLabel = (g, s) => (isDev(g) && s === 'online' ? 'In development' : statusText[s]);
 
+  // "bg" with more than two colours = a multi-stop sky (e.g. day to night), at "bgAngle" degrees (default 160)
+  const cardBg = (g) => (g.bg.length > 2 ? `--card-bg:linear-gradient(${Number(g.bgAngle) || 160}deg,${g.bg.map(esc).join(',')});` : '');
+  // sheets and the launch screen use the last (darkest) two colours, so their text stays readable
+  const darkPair = (g) => g.bg.slice(-2);
+
   function cardHTML(g, i) {
     return `
-    <article class="card${isDev(g) ? ' dev' : ''}" id="card-${esc(g.id)}" style="--accent:${esc(g.accent)};--bg1:${esc(g.bg[0])};--bg2:${esc(g.bg[1])};--in:${(1.3 + i * 0.12).toFixed(2)}s">
+    <article class="card${isDev(g) ? ' dev' : ''}" id="card-${esc(g.id)}" style="--accent:${esc(g.accent)};--bg1:${esc(g.bg[0])};--bg2:${esc(g.bg[1])};${cardBg(g)}--in:${(1.3 + i * 0.12).toFixed(2)}s">
       ${isDev(g) ? '<div class="dev-mark" aria-hidden="true"><span>NOT READY YET</span></div>' : ''}
       <div class="card-top">
         <div class="card-icon" style="--bob:${-i * 0.7}s"><img src="${esc(g.icon)}" alt="" width="72" height="72" /></div>
@@ -260,7 +265,7 @@
       <div class="sheet-cta">
         <a class="btn primary play" href="${esc(gameUrl(g))}" data-play="${esc(g.id)}">Play ${esc(g.short || g.name)} <span class="arrow">→</span></a>
       </div>`;
-    openSheet($('#sheet'), { '--bg1': g.bg[0], '--bg2': g.bg[1], '--accent': g.accent });
+    openSheet($('#sheet'), { '--bg1': darkPair(g)[0], '--bg2': darkPair(g)[1], '--accent': g.accent });
   }
   $('#sheet-body').addEventListener('click', (e) => {
     const play = e.target.closest('[data-play]');
@@ -275,8 +280,8 @@
     const r = fromEl.getBoundingClientRect();
     el.style.setProperty('--x', r.left + r.width / 2 + 'px');
     el.style.setProperty('--y', r.top + r.height / 2 + 'px');
-    el.style.setProperty('--bg1', g.bg[0]);
-    el.style.setProperty('--bg2', g.bg[1]);
+    el.style.setProperty('--bg1', darkPair(g)[0]);
+    el.style.setProperty('--bg2', darkPair(g)[1]);
     el.style.setProperty('--accent', g.accent);
     $('#launch-icon').src = g.icon;
     $('#launch-title').textContent = `Opening ${g.name}`;
