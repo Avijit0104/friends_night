@@ -224,6 +224,27 @@ img { max-width: 100%; display: block; }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(53, 224, 138, .6); } 80%, 100% { box-shadow: 0 0 0 9px rgba(53, 224, 138, 0); } }
 @keyframes blink { 50% { opacity: .3; } }
 
+/* "stage": "dev" games: playable, but marked as unfinished */
+.status[data-dev][data-s="online"] { color: #ffd38a; }
+.status[data-dev][data-s="online"] i { background: #ffb547; animation: ping-dev 2s infinite; }
+@keyframes ping-dev { 0% { box-shadow: 0 0 0 0 rgba(255, 181, 71, .6); } 80%, 100% { box-shadow: 0 0 0 9px rgba(255, 181, 71, 0); } }
+.dev-mark { /* diagonal watermark across the tile; clicks go straight through it */
+  position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden;
+  display: grid; place-items: center; border-radius: inherit;
+}
+.dev-mark span {
+  display: block; width: 160%; padding: 8px 0; text-align: center; transform: rotate(-24deg);
+  font-family: var(--font-display); font-weight: 800; letter-spacing: .14em; white-space: nowrap;
+  font-size: clamp(1.25rem, 6.2vw, 1.75rem); color: rgba(255, 214, 120, .5);
+  background: repeating-linear-gradient(-45deg, rgba(255, 196, 70, .1) 0 14px, rgba(0, 0, 0, .08) 14px 28px);
+  border-block: 2px dashed rgba(255, 196, 70, .35);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
+}
+.dev-note {
+  margin: 14px 0 0; padding: 10px 14px; border-radius: 14px;
+  background: rgba(255, 181, 71, .12); border: 1px solid rgba(255, 181, 71, .35); color: #ffe2ae !important;
+}
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 46px; padding: 0 18px; border-radius: 14px; border: 0; cursor: pointer;

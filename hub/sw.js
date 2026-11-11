@@ -1,7 +1,7 @@
 /* Friend's Night service worker: the page works offline-ish and installs as an app.
  * Page, script and games.json: network first (always fresh), cached copy when offline.
  * Images and fonts: cache first. Bump VERSION when you want every phone to drop the old cache. */
-const VERSION = 'fn-v2';
+const VERSION = 'fn-v3';
 const CORE = ['./', 'style.css', 'app.js', 'games.json', 'icon.svg', 'manifest.webmanifest'];
 
 self.addEventListener('install', (e) => {

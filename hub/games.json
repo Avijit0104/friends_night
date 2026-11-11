@@ -1,5 +1,5 @@
 {
-  "_help": "One entry per game; `url` is where Play goes. hosting: 'links' = every game has its own url (now: Cloudflare/Render). 'own-server' = the Oracle setup in GUIDE.md. See README.md → 'Adding a game'.",
+  "_help": "One entry per game; `url` is where Play goes. hosting: 'links' = every game has its own url (now: Cloudflare/Render). 'own-server' = the Oracle setup in GUIDE.md. See README.md → 'Adding a game'. Optional \"stage\": \"dev\" marks a game as in development: a diagonal 'NOT READY YET' on its card and 'In development' instead of 'Ready to play' (Play still works).",
   "hosting": "links",
   "games": [
     {
@@ -109,6 +109,32 @@
       "branch": "main",
       "port": 3004,
       "health": "/healthz"
+    },
+    {
+      "id": "underroot",
+      "name": "Underroot",
+      "short": "Jungle Expedition",
+      "stage": "dev",
+      "tagline": "Lost in Greenfall Basin. Make camp before nightfall!",
+      "about": "A 3D jungle expedition in Bengali. Search Greenfall Basin, follow the trail through the giant root arch, pitch your tent before dark and find your way back to camp. Stranded at night? Signal for rescue or wait for dawn. Play solo or with friends. This is an early prototype, so things may change or break.",
+      "howTo": [
+        "📱 Turn your phone sideways to play.",
+        "⌨️ On a computer: WASD to move, Shift to run, Space to jump, E to use, drag to look.",
+        "🧭 Follow the objective at the top: search the jungle and take the trail north.",
+        "⛺ Before night falls, find a flat, safe spot and tap Camp (C) to pitch your tent and light a fire.",
+        "🔦 Stranded in the dark? Signal for help or wait for the morning light."
+      ],
+      "humans": [1, 8],
+      "seats": "Solo or with friends",
+      "time": "Early prototype",
+      "tags": ["3D", "Adventure", "Bengali"],
+      "accent": "#9be36b",
+      "bg": ["#24432f", "#0c1612"],
+      "icon": "games/underroot/icon.svg",
+      "screenshots": [],
+      "subdomain": "underroot",
+      "url": "https://under-root.avibose000.workers.dev",
+      "health": "/"
     }
   ]
 }

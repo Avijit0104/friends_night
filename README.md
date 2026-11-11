@@ -2,7 +2,7 @@
 
 Party games for your phone, all in one place. Pick a game, share the room code, and bots fill the empty seats.
 
-**Games:** Vault Rush · Chor Police Dakat Babu · Ram Shaayam Jadu Madhu · The Lost Frontier
+**Games:** Vault Rush · Chor Police Dakat Babu · Ram Shaayam Jadu Madhu · The Lost Frontier · Underroot (in development)
 
 *Developed by Avijit Bose*
 ***https://friends-night.avibose000.workers.dev***
@@ -25,6 +25,7 @@ The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub r
 | Ram Shaayam Jadu Madhu | https://rsjm.avibose000.workers.dev |
 | Vault Rush | https://vault-rush.avibose000.workers.dev |
 | The Lost Frontier | https://lost-frontier.avibose000.workers.dev |
+| Underroot (in development) | https://under-root.avibose000.workers.dev |
 
 ## Adding a game
 
@@ -35,6 +36,7 @@ The hub is a Cloudflare Worker named `friends-night`, connected to this GitHub r
    - `health`: an address on the game that answers quickly, e.g. `/healthz` (drives the status light)
    - `humans`: `[min, max]` **people** (bots fill the rest), used by the "How many of you?" filter
    - `name`, `short`, `tagline`, `about`, `howTo`, `seats`, `time`, `tags`, `accent`, `bg`, `icon`, `screenshots`: what the card and the "How to play" sheet show
+   - `stage` (optional): `"dev"` for a game that isn't finished. Its card gets a diagonal "NOT READY YET" watermark and says "In development" instead of "Ready to play"; Play still works. Remove the line when the game is ready.
    - `subdomain`, `repo`, `branch`, `port`: only used by the Oracle setup
 3. Push. The new card appears on the hub.
 

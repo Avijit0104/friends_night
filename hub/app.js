@@ -117,10 +117,14 @@
   /* ---------------- cards ---------------- */
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const statusText = { checking: 'Checking…', online: 'Ready to play', waking: 'Waking up…', offline: 'Offline right now' };
+  // games.json "stage": "dev" = still being built: playable, but labelled as such
+  const isDev = (g) => g && g.stage === 'dev';
+  const statusLabel = (g, s) => (isDev(g) && s === 'online' ? 'In development' : statusText[s]);
 
   function cardHTML(g, i) {
     return `
-    <article class="card" id="card-${esc(g.id)}" style="--accent:${esc(g.accent)};--bg1:${esc(g.bg[0])};--bg2:${esc(g.bg[1])};--in:${(1.3 + i * 0.12).toFixed(2)}s">
+    <article class="card${isDev(g) ? ' dev' : ''}" id="card-${esc(g.id)}" style="--accent:${esc(g.accent)};--bg1:${esc(g.bg[0])};--bg2:${esc(g.bg[1])};--in:${(1.3 + i * 0.12).toFixed(2)}s">
+      ${isDev(g) ? '<div class="dev-mark" aria-hidden="true"><span>NOT READY YET</span></div>' : ''}
       <div class="card-top">
         <div class="card-icon" style="--bob:${-i * 0.7}s"><img src="${esc(g.icon)}" alt="" width="72" height="72" /></div>
         <h2 class="card-name">${esc(g.name)}${g.short ? `<small>${esc(g.short)}</small>` : ''}</h2>
@@ -133,7 +137,7 @@
         <span class="warn fit" hidden>Up to ${g.humans[1]} people</span>
       </div>
       <div class="card-foot">
-        <span class="status" data-s="checking"><i></i><span>${statusText.checking}</span></span>
+        <span class="status" data-s="checking"${isDev(g) ? ' data-dev' : ''}><i></i><span>${statusText.checking}</span></span>
         <button class="btn ghost" type="button" data-info="${esc(g.id)}" aria-label="How to play ${esc(g.name)}">ⓘ</button>
         <a class="btn primary play" href="${esc(gameUrl(g))}" data-play="${esc(g.id)}">Play <span class="arrow">→</span></a>
       </div>
@@ -190,7 +194,7 @@
   function setStatus(id, s) {
     status[id] = s;
     const el = $(`#card-${CSS.escape(id)} .status`);
-    if (el) { el.dataset.s = s; el.lastElementChild.textContent = statusText[s]; }
+    if (el) { el.dataset.s = s; el.lastElementChild.textContent = statusLabel(games.find((g) => g.id === id), s); }
   }
 
   async function check(g) {
@@ -247,6 +251,7 @@
         <img src="${esc(g.icon)}" alt="" width="84" height="84" />
         <div><h2 id="sheet-title">${esc(g.name)}</h2><p style="margin:.3em 0 0">${esc(g.tagline)}</p></div>
       </div>
+      ${isDev(g) ? '<p class="dev-note">🚧 <b>In development.</b> You can play it, but it isn\'t finished yet.</p>' : ''}
       <p>${esc(g.about)}</p>
       <div class="meta"><span>👥 ${esc(g.seats)}</span><span>⏱ ${esc(g.time)}</span></div>
       <h3>How to play</h3>
@@ -275,7 +280,8 @@
     el.style.setProperty('--accent', g.accent);
     $('#launch-icon').src = g.icon;
     $('#launch-title').textContent = `Opening ${g.name}`;
-    $('#launch-note').textContent = status[g.id] === 'online' ? 'Get your friends ready!' : 'Waking up the game server. This can take a moment…';
+    $('#launch-note').textContent = status[g.id] !== 'online' ? 'Waking up the game server. This can take a moment…'
+      : isDev(g) ? 'Still in development: things may change or break. Have fun testing!' : 'Get your friends ready!';
     el.hidden = false;
     requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('open')));
     setTimeout(() => { location.href = url; }, reduceMotion ? 50 : 650);
